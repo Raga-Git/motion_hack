@@ -8,9 +8,11 @@ environment:
 dependencies: 
   cupertino_icons: ^1.0.6
   get: 4.6.6
+  introduction_screen: ^3.1.14
   flutter: 
     sdk: flutter
-  introduction_screen: ^3.1.14
+  firebase_core: ^2.27.1
+  firebase_auth: ^4.17.9
 
 dev_dependencies: 
   flutter_lints: ^3.0.0

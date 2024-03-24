@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:motion_hack/app/controllers/auth_controller.dart';
 import 'package:motion_hack/app/modules/register_page/controllers/register_page_controller.dart';
 import 'package:motion_hack/app/routes/app_pages.dart';
 
-
-
 class RegisterPageView extends GetView<RegisterPageController> {
-  const RegisterPageView({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
+  RegisterPageView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,6 +99,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                     height: 8,
                   ),
                   TextField(
+                    controller: controller.emailC,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -129,6 +130,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                     height: 8,
                   ),
                   TextField(
+                    controller: controller.passC,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -208,7 +210,8 @@ class RegisterPageView extends GetView<RegisterPageController> {
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 16.5),
                       ),
-                      onPressed: () {},
+                      onPressed: () => authC.register(
+                          controller.emailC.text, controller.passC.text),
                       child: const Text(
                         "Daftar",
                         style: TextStyle(
