@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:motion_hack/app/controllers/auth_controller.dart';
 import 'package:motion_hack/app/modules/register_page/controllers/register_page_controller.dart';
 import 'package:motion_hack/app/routes/app_pages.dart';
+import 'package:motion_hack/app/shared/theme/color.dart';
 
 class RegisterPageView extends GetView<RegisterPageController> {
   final authC = Get.find<AuthController>();
@@ -69,6 +70,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                     height: 8,
                   ),
                   TextField(
+                    controller: controller.fullnameC,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -181,19 +183,19 @@ class RegisterPageView extends GetView<RegisterPageController> {
                     height: 14,
                   ),
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       text: "Dengan masuk atau mendaftar, kamu menyetujui ",
                       style: TextStyle(color: Colors.grey),
                       children: [
                         TextSpan(
                             text: "Ketentuan layanan",
-                            style: TextStyle(color: Colors.blue)),
+                            style: TextStyle(color: primaryColor)),
                         TextSpan(
                             text: " dan ",
                             style: TextStyle(color: Colors.grey)),
                         TextSpan(
                             text: "Kebijakan  privasi",
-                            style: TextStyle(color: Colors.blue)),
+                            style: TextStyle(color: primaryColor)),
                       ],
                     ),
                   ),
@@ -204,14 +206,17 @@ class RegisterPageView extends GetView<RegisterPageController> {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: primaryColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 16.5),
                       ),
                       onPressed: () => authC.register(
-                          controller.emailC.text, controller.passC.text),
+                        controller.emailC.text,
+                        controller.passC.text,
+                        controller.fullnameC.text,
+                      ),
                       child: const Text(
                         "Daftar",
                         style: TextStyle(
@@ -234,9 +239,9 @@ class RegisterPageView extends GetView<RegisterPageController> {
                           onTap: () {
                             Get.offAllNamed(Routes.LOGIN_PAGE);
                           },
-                          child: const Text(
+                          child: Text(
                             "Masuk",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color: primaryColor),
                           ),
                         )
                       ],

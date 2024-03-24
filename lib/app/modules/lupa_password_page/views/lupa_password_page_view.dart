@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:motion_hack/app/controllers/auth_controller.dart';
 
 import '../controllers/lupa_password_page_controller.dart';
 
@@ -69,7 +70,9 @@ class LupaPasswordPageView extends GetView<LupaPasswordPageController> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     padding: EdgeInsets.symmetric(vertical: 16)),
-                onPressed: () {},
+                onPressed: () {
+                  controller.resetPassword();
+                },
                 child: Text(
                   'Kirim',
                   style: TextStyle(

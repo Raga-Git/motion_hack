@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:motion_hack/app/routes/app_pages.dart';
+import 'package:motion_hack/app/shared/theme/color.dart';
 
 import '../controllers/onboarding_page_controller.dart';
 
@@ -83,7 +84,7 @@ class IntroductionPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -110,8 +111,8 @@ class IntroductionPage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                    side: const BorderSide(
-                      color: Colors.blue,
+                    side: BorderSide(
+                      color: primaryColor,
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -120,10 +121,10 @@ class IntroductionPage extends StatelessWidget {
                 onPressed: () {
                   Get.offAllNamed(Routes.REGISTER_PAGE);
                 },
-                child: const Text(
+                child: Text(
                   "Belum ada akun? Daftar dulu",
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: primaryColor,
                     fontSize: 16,
                   ),
                 ),
@@ -133,23 +134,29 @@ class IntroductionPage extends StatelessWidget {
               height: 11,
             ),
             RichText(
-              text: const TextSpan(
+              text: TextSpan(
                 text: "Dengan masuk atau mendaftar, kamu menyetujui ",
                 style: TextStyle(color: Colors.grey),
                 children: [
                   TextSpan(
-                      text: "Ketentuan layanan",
-                      style: TextStyle(color: Colors.blue)),
-                  TextSpan(text: " dan ", style: TextStyle(color: Colors.grey)),
+                    text: "Ketentuan layanan",
+                    style: TextStyle(color: primaryColor),
+                  ),
                   TextSpan(
-                      text: "Kebijakan  privasi",
-                      style: TextStyle(color: Colors.blue)),
+                    text: " dan ",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  TextSpan(
+                    text: "Kebijakan  privasi",
+                    style: TextStyle(color: primaryColor),
+                  ),
                 ],
               ),
             )
           ],
         ),
       ),
+      infiniteAutoScroll: true, // update infinite auto scroll
       allowImplicitScrolling: true,
       done: const Text(""),
       onDone: () {},
@@ -160,8 +167,8 @@ class IntroductionPage extends StatelessWidget {
       skip: const Text('Skip', style: TextStyle(fontWeight: FontWeight.w600)),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
-      dotsDecorator: const DotsDecorator(
-        activeColor: Colors.blue,
+      dotsDecorator: DotsDecorator(
+        activeColor: primaryColor,
         size: Size(10.0, 10.0),
         color: Color(0xFFD9D9D9),
         activeSize: Size(22.0, 10.0),
