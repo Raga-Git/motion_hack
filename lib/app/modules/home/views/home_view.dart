@@ -377,7 +377,231 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Konsultasi",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Text(
+                        "Lihat semua",
+                        style: TextStyle(
+                          color: primaryColor,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Card(
+                    color: white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 125,
+                            width: 91,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF2F2F2),
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/profile/stefanus.png",
+                                ),
+                                fit: BoxFit
+                                    .cover, // Adjusts the size of the image to cover the entire container
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 13,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset("assets/images/icons/check.png"),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Profesional Doctor",
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                      fontSize: 12,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Text(
+                                "dr. Stefanus Lee, Sp.P(K)",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                "Spesialis Pulmonologi dan\nKedokteran Respirasi",
+                                style: TextStyle(
+                                  color: grey,
+                                  fontSize: 11,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "IDR",
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                  Text(
+                                    "30.000",
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: primaryColor,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        )),
+                                    child: Text(
+                                      "Konsultasi",
+                                      style: TextStyle(
+                                        color: white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Card(
+                    color: white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 125,
+                            width: 91,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF2F2F2),
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/profile/agita.png",
+                                ),
+                                fit: BoxFit
+                                    .cover, // Adjusts the size of the image to cover the entire container
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 13,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset("assets/images/icons/check.png"),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Profesional Doctor",
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                      fontSize: 12,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Text(
+                                "dr. Agita Meisha, Sp.P(K)",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                "Spesialis Pulmonologi dan\nKedokteran Respirasi",
+                                style: TextStyle(
+                                  color: grey,
+                                  fontSize: 11,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "IDR",
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                  Text(
+                                    "45.000",
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: primaryColor,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        )),
+                                    child: Text(
+                                      "Konsultasi",
+                                      style: TextStyle(
+                                        color: white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
