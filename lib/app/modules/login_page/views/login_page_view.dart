@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
+import 'package:motion_hack/app/routes/app_pages.dart';
 
 import '../controllers/login_page_controller.dart';
 
@@ -115,11 +117,16 @@ class LoginPageView extends GetView<LoginPageController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  'Lupa Password?',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.red,
+                GestureDetector(
+                  onTap: () {
+                    Get.offAllNamed(Routes.LUPA_PASSWORD_PAGE);
+                  },
+                  child: Text(
+                    'Lupa Password?',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
               ],
@@ -153,12 +160,13 @@ class LoginPageView extends GetView<LoginPageController> {
                       color: Colors.black54, fontWeight: FontWeight.bold),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.offAllNamed(Routes.REGISTER_PAGE);
+                  },
                   child: const Text(
                     'Daftar',
                     style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold),
+                        color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
