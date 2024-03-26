@@ -4,6 +4,10 @@ import '../modules/detail_progress_tracker/bindings/detail_progress_tracker_bind
 import '../modules/detail_progress_tracker/views/detail_progress_tracker_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/jadwal_konsultasi/bindings/jadwal_konsultasi_binding.dart';
+import '../modules/jadwal_konsultasi/views/jadwal_konsultasi_view.dart';
+import '../modules/konsultasi/bindings/konsultasi_binding.dart';
+import '../modules/konsultasi/views/konsultasi_view.dart';
 import '../modules/login_page/bindings/login_page_binding.dart';
 import '../modules/login_page/views/login_page_view.dart';
 import '../modules/lupa_password_page/bindings/lupa_password_page_binding.dart';
@@ -71,6 +75,16 @@ class AppPages {
       name: _Paths.DETAIL_PROGRESS_TRACKER,
       page: () => const DetailProgressTrackerView(),
       binding: DetailProgressTrackerBinding(),
+    ),
+    GetPage(
+      name: _Paths.KONSULTASI,
+      page: () => const KonsultasiView(),
+      binding: KonsultasiBinding(),
+    ),
+    GetPage(
+      name: _Paths.JADWAL_KONSULTASI,
+      page: () => const JadwalKonsultasiView(),
+      binding: JadwalKonsultasiBinding(),
     ),
   ];
 }

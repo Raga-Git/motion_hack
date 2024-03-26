@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:motion_hack/app/controllers/auth_controller.dart';
 import 'package:motion_hack/app/routes/app_pages.dart';
 import 'package:motion_hack/app/shared/theme/color.dart';
+import 'package:motion_hack/app/shared/widget/card_doctor.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -392,11 +394,16 @@ class HomeView extends GetView<HomeController> {
                           fontSize: 16,
                         ),
                       ),
-                      Text(
-                        "Lihat semua",
-                        style: TextStyle(
-                          color: primaryColor,
-                          fontSize: 12,
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.KONSULTASI);
+                        },
+                        child: Text(
+                          "Lihat semua",
+                          style: TextStyle(
+                            color: primaryColor,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ],
@@ -404,204 +411,20 @@ class HomeView extends GetView<HomeController> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Card(
-                    color: white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 125,
-                            width: 91,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFF2F2F2),
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/profile/stefanus.png",
-                                ),
-                                fit: BoxFit
-                                    .cover, // Adjusts the size of the image to cover the entire container
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 13,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset("assets/images/icons/check.png"),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "Profesional Doctor",
-                                    style: TextStyle(
-                                      color: primaryColor,
-                                      fontSize: 12,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Text(
-                                "dr. Stefanus Lee, Sp.P(K)",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              Text(
-                                "Spesialis Pulmonologi dan\nKedokteran Respirasi",
-                                style: TextStyle(
-                                  color: grey,
-                                  fontSize: 11,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "IDR",
-                                    style: TextStyle(
-                                      color: primaryColor,
-                                      fontSize: 10,
-                                    ),
-                                  ),
-                                  Text(
-                                    "30.000",
-                                    style: TextStyle(
-                                      color: primaryColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor: primaryColor,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        )),
-                                    child: Text(
-                                      "Konsultasi",
-                                      style: TextStyle(
-                                        color: white,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
+                  CardDoctor(
+                    name: "dr. Stefanus Lee, Sp.P(K)",
+                    description:
+                        "Spesialis Pulmonologi dan\nKedokteran Respirasi",
+                    harga: "30.000",
+                    image: "stefanus",
                   ),
-                  Card(
-                    color: white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 125,
-                            width: 91,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFF2F2F2),
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/profile/agita.png",
-                                ),
-                                fit: BoxFit
-                                    .cover, // Adjusts the size of the image to cover the entire container
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 13,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset("assets/images/icons/check.png"),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "Profesional Doctor",
-                                    style: TextStyle(
-                                      color: primaryColor,
-                                      fontSize: 12,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Text(
-                                "dr. Agita Meisha, Sp.P(K)",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              Text(
-                                "Spesialis Pulmonologi dan\nKedokteran Respirasi",
-                                style: TextStyle(
-                                  color: grey,
-                                  fontSize: 11,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "IDR",
-                                    style: TextStyle(
-                                      color: primaryColor,
-                                      fontSize: 10,
-                                    ),
-                                  ),
-                                  Text(
-                                    "45.000",
-                                    style: TextStyle(
-                                      color: primaryColor,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor: primaryColor,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        )),
-                                    child: Text(
-                                      "Konsultasi",
-                                      style: TextStyle(
-                                        color: white,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  CardDoctor(
+                    name: "dr. Agita Meisha, Sp.P(K)",
+                    description:
+                        "Spesialis Pulmonologi dan\nKedokteran Respirasi",
+                    harga: "45.000",
+                    image: "agita",
+                  )
                 ],
               ),
             ),

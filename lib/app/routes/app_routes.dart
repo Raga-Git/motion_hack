@@ -12,6 +12,8 @@ abstract class Routes {
   static const SET_TANGGAL = _Paths.SET_TANGGAL;
   static const PENGALAMAN_ROKOK = _Paths.PENGALAMAN_ROKOK;
   static const DETAIL_PROGRESS_TRACKER = _Paths.DETAIL_PROGRESS_TRACKER;
+  static const KONSULTASI = _Paths.KONSULTASI;
+  static const JADWAL_KONSULTASI = _Paths.JADWAL_KONSULTASI;
 }
 
 abstract class _Paths {
@@ -25,4 +27,6 @@ abstract class _Paths {
   static const SET_TANGGAL = '/set-tanggal';
   static const PENGALAMAN_ROKOK = '/pengalaman-rokok';
   static const DETAIL_PROGRESS_TRACKER = '/detail-progress-tracker';
+  static const KONSULTASI = '/konsultasi';
+  static const JADWAL_KONSULTASI = '/jadwal-konsultasi';
 }
