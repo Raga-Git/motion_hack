@@ -16,6 +16,7 @@ abstract class Routes {
   static const NOTIFIKASI_PAGE = _Paths.NOTIFIKASI_PAGE;
   static const SPLASH1_PAGE = _Paths.SPLASH1_PAGE;
   static const SPLASH2_PAGE = _Paths.SPLASH2_PAGE;
+  static const NAVIGATION = _Paths.NAVIGATION;
 }
 
 abstract class _Paths {
@@ -33,4 +34,5 @@ abstract class _Paths {
   static const NOTIFIKASI_PAGE = '/notifikasi-page';
   static const SPLASH1_PAGE = '/splash1-page';
   static const SPLASH2_PAGE = '/splash2-page';
+  static const NAVIGATION = '/navigation';
 }

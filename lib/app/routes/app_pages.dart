@@ -12,6 +12,8 @@ import '../modules/login_page/bindings/login_page_binding.dart';
 import '../modules/login_page/views/login_page_view.dart';
 import '../modules/lupa_password_page/bindings/lupa_password_page_binding.dart';
 import '../modules/lupa_password_page/views/lupa_password_page_view.dart';
+import '../modules/navigation/bindings/navigation_binding.dart';
+import '../modules/navigation/views/navigation_view.dart';
 import '../modules/notifikasi_page/bindings/notifikasi_page_binding.dart';
 import '../modules/notifikasi_page/views/notifikasi_page_view.dart';
 import '../modules/onboarding_page/bindings/onboarding_page_binding.dart';
@@ -99,6 +101,11 @@ class AppPages {
       name: _Paths.SPLASH2_PAGE,
       page: () => const Splash2PageView(),
       binding: Splash2PageBinding(),
+    ),
+    GetPage(
+      name: _Paths.NAVIGATION,
+      page: () => const NavigationView(),
+      binding: NavigationBinding(),
     ),
   ];
 }
