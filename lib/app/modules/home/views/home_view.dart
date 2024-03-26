@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:motion_hack/app/controllers/auth_controller.dart';
+import 'package:motion_hack/app/routes/app_pages.dart';
 import 'package:motion_hack/app/shared/theme/color.dart';
 import '../controllers/home_controller.dart';
 
@@ -17,26 +18,16 @@ class HomeView extends GetView<HomeController> {
           Container(
             width: double.infinity,
             height: 315,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-              ),
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF0E54BC).withOpacity(0.4),
-                  Color(0xFF446DAF).withOpacity(0.3),
-                  Color(0xFFFFFFFF).withOpacity(0.2),
-                ],
-                transform: GradientRotation(BorderSide.strokeAlignOutside),
-                begin: Alignment.centerRight,
-                end: Alignment.centerLeft,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/background/blue.png"),
+                fit: BoxFit.fill,
               ),
             ),
           ),
           SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 25,
                 vertical: 50,
               ),
@@ -52,12 +43,14 @@ class HomeView extends GetView<HomeController> {
                             "Selamat Pagi,",
                             style: TextStyle(
                               fontSize: 16,
+                              color: white,
                             ),
                           ),
                           Text(
-                            "Nama",
+                            "Jason Derulo",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              color: white,
                               fontSize: 16,
                             ),
                           ),
@@ -70,7 +63,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 28,
                   ),
                   Card(
@@ -83,7 +76,7 @@ class HomeView extends GetView<HomeController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Waktu Bebas Rokok",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -110,15 +103,18 @@ class HomeView extends GetView<HomeController> {
                                       ),
                                       backgroundColor: primaryColor,
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.offAllNamed(
+                                          Routes.DETAIL_PROGRESS_TRACKER);
+                                    },
                                     child: Text(
-                                      "Explore",
+                                      "Detail",
                                       style: TextStyle(
                                         color: white,
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 39,
                                   ),
                                   Row(
@@ -126,7 +122,7 @@ class HomeView extends GetView<HomeController> {
                                       Image.asset(
                                         "assets/images/icons/up.png",
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 5,
                                       ),
                                       Text(
@@ -146,86 +142,90 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 19,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 123,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(22),
-                      color: primaryColor,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              bottom: 5, top: 10, left: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Oops,",
-                                style: TextStyle(
-                                  color: white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 22,
-                                ),
-                              ),
-                              Text(
-                                "saya baru saja merokok",
-                                style: TextStyle(
-                                  color: white,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  backgroundColor: white.withOpacity(0.6),
-                                ),
-                                child: Text(
-                                  "Ulangi",
+                  Stack(
+                    children: [
+                      Image.asset("assets/images/background/smoke.png"),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15, left: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Oops,",
                                   style: TextStyle(
-                                    color: white,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22,
+                                  ),
+                                ),
+                                const Text(
+                                  "saya baru saja merokok",
+                                  style: TextStyle(
+                                    color: Colors.white,
                                     fontSize: 14,
                                   ),
                                 ),
-                              ),
-                            ],
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    backgroundColor:
+                                        Colors.white.withOpacity(0.4),
+                                  ),
+                                  child: const Text(
+                                    "Ulangi",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Image.asset(
-                          "assets/images/items/people.png",
-                          fit: BoxFit.fitHeight,
-                        )
-                      ],
-                    ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 10.2, right: 22),
+                            child: Image.asset(
+                              "assets/images/items/people.png",
+                              fit: BoxFit.fitHeight,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 21,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Card(
-                        color: Color(0xFFC1E5FF),
+                        color: const Color(0xFFC1E5FF),
                         child: Stack(
                           children: [
                             Positioned(
+                              bottom: 0,
+                              right: 0,
                               child: Image.asset(
                                 "assets/images/items/dollar.png",
                                 color: white,
                               ),
-                              bottom: 0,
-                              right: 0,
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(
@@ -236,7 +236,7 @@ class HomeView extends GetView<HomeController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   RichText(
-                                    text: TextSpan(
+                                    text: const TextSpan(
                                       text: "Kamu telah\n",
                                       style: TextStyle(
                                         color: Colors.black,
@@ -251,7 +251,7 @@ class HomeView extends GetView<HomeController> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Row(
@@ -263,7 +263,7 @@ class HomeView extends GetView<HomeController> {
                                           fontSize: 14,
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 5,
                                       ),
                                       Text(
@@ -276,10 +276,10 @@ class HomeView extends GetView<HomeController> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
-                                  Text(
+                                  const Text(
                                     "hari ini",
                                     style: TextStyle(
                                       fontSize: 14,
@@ -292,16 +292,16 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                       Card(
-                        color: Color(0xFFC1E5FF),
+                        color: const Color(0xFFC1E5FF).withOpacity(0.9),
                         child: Stack(
                           children: [
                             Positioned(
+                              bottom: 0,
+                              right: 0,
                               child: Image.asset(
                                 "assets/images/items/panah.png",
                                 color: secandaryColor,
                               ),
-                              bottom: 0,
-                              right: 0,
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(
@@ -312,7 +312,7 @@ class HomeView extends GetView<HomeController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   RichText(
-                                    text: TextSpan(
+                                    text: const TextSpan(
                                       text: "Kamu ",
                                       style: TextStyle(
                                         color: Colors.black,
@@ -336,7 +336,7 @@ class HomeView extends GetView<HomeController> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Row(
@@ -349,7 +349,7 @@ class HomeView extends GetView<HomeController> {
                                           fontSize: 20,
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 5,
                                       ),
                                       Text(
@@ -361,10 +361,10 @@ class HomeView extends GetView<HomeController> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
-                                  Text(
+                                  const Text(
                                     "tantangan",
                                     style: TextStyle(
                                       fontSize: 14,
@@ -378,13 +378,13 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Konsultasi",
                         style: TextStyle(
                           color: Colors.black,
@@ -401,7 +401,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Card(
@@ -414,9 +414,9 @@ class HomeView extends GetView<HomeController> {
                             height: 125,
                             width: 91,
                             decoration: BoxDecoration(
-                              color: Color(0xFFF2F2F2),
+                              color: const Color(0xFFF2F2F2),
                               borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: AssetImage(
                                   "assets/images/profile/stefanus.png",
                                 ),
@@ -425,7 +425,7 @@ class HomeView extends GetView<HomeController> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 13,
                           ),
                           Column(
@@ -434,7 +434,7 @@ class HomeView extends GetView<HomeController> {
                               Row(
                                 children: [
                                   Image.asset("assets/images/icons/check.png"),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 5,
                                   ),
                                   Text(
@@ -446,7 +446,7 @@ class HomeView extends GetView<HomeController> {
                                   )
                                 ],
                               ),
-                              Text(
+                              const Text(
                                 "dr. Stefanus Lee, Sp.P(K)",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -477,7 +477,7 @@ class HomeView extends GetView<HomeController> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   ElevatedButton(
@@ -513,9 +513,9 @@ class HomeView extends GetView<HomeController> {
                             height: 125,
                             width: 91,
                             decoration: BoxDecoration(
-                              color: Color(0xFFF2F2F2),
+                              color: const Color(0xFFF2F2F2),
                               borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                 image: AssetImage(
                                   "assets/images/profile/agita.png",
                                 ),
@@ -524,7 +524,7 @@ class HomeView extends GetView<HomeController> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 13,
                           ),
                           Column(
@@ -533,7 +533,7 @@ class HomeView extends GetView<HomeController> {
                               Row(
                                 children: [
                                   Image.asset("assets/images/icons/check.png"),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 5,
                                   ),
                                   Text(
@@ -545,7 +545,7 @@ class HomeView extends GetView<HomeController> {
                                   )
                                 ],
                               ),
-                              Text(
+                              const Text(
                                 "dr. Agita Meisha, Sp.P(K)",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -576,7 +576,7 @@ class HomeView extends GetView<HomeController> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   ElevatedButton(

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return StreamBuilder<User?>(
         stream: authC.streamAuthStatus,
         builder: (context, snapshot) {
-            print(snapshot.data);
+          print(snapshot.data);
           if (snapshot.connectionState == ConnectionState.active) {
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,

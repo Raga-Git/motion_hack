@@ -16,19 +16,14 @@ class RegisterPageView extends GetView<RegisterPageController> {
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 25,
-          vertical: 80,
+          vertical: 50,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "LOGO",
-              style: TextStyle(
-                fontSize: 14,
-              ),
-            ),
+            Image.asset("assets/images/items/logo.png"),
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             const Padding(
               padding: EdgeInsets.only(right: 88),
@@ -237,7 +232,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                         const Text("Sudah punya akun? "),
                         GestureDetector(
                           onTap: () {
-                            Get.offAllNamed(Routes.LOGIN_PAGE);
+                            Get.offAllNamed(Routes.SET_TANGGAL);
                           },
                           child: Text(
                             "Masuk",
