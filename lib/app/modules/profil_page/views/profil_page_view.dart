@@ -217,7 +217,7 @@ class ProfilPageView extends GetView<ProfilPageController> {
                       ),
                     ),
                     Icon(Icons.chevron_right_rounded)
-                   // Get.offAllNamed(Routes.EDIT_PROFIL_PAGE),
+                    // Get.offAllNamed(Routes.EDIT_PROFIL_PAGE),
                   ],
                 ),
                 SizedBox(
@@ -228,6 +228,21 @@ class ProfilPageView extends GetView<ProfilPageController> {
                   children: [
                     Text(
                       'Ubah Kata Sandi',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    Icon(Icons.chevron_right_rounded)
+                  ],
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Atur Akun',
                       style: TextStyle(
                         fontSize: 16,
                       ),
