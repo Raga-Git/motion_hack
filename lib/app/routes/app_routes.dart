@@ -14,6 +14,8 @@ abstract class Routes {
   static const EDIT_PROFIL_PAGE = _Paths.EDIT_PROFIL_PAGE;
   static const CHAT_PAGE = _Paths.CHAT_PAGE;
   static const NOTIFIKASI_PAGE = _Paths.NOTIFIKASI_PAGE;
+  static const SPLASH1_PAGE = _Paths.SPLASH1_PAGE;
+  static const SPLASH2_PAGE = _Paths.SPLASH2_PAGE;
 }
 
 abstract class _Paths {
@@ -29,4 +31,6 @@ abstract class _Paths {
   static const EDIT_PROFIL_PAGE = '/edit-profil-page';
   static const CHAT_PAGE = '/chat-page';
   static const NOTIFIKASI_PAGE = '/notifikasi-page';
+  static const SPLASH1_PAGE = '/splash1-page';
+  static const SPLASH2_PAGE = '/splash2-page';
 }

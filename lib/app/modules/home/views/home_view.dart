@@ -10,7 +10,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final authC = Get.find<AuthController>(); // Moved inside build method
+    final authC = Get.find<AuthController>(); 
     return Scaffold(
       body: Stack(
         children: [

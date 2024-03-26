@@ -18,27 +18,7 @@ class AnalisisPageView extends GetView<AnalisisPageController> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            width: double.infinity,
-            height: 400,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-              ),
-              gradient: LinearGradient(
-                colors: [
-                  const Color(0xFF0E54BC).withOpacity(0.4),
-                  const Color(0xFF446DAF).withOpacity(0.3),
-                  const Color(0xFFFFFFFF).withOpacity(0.2),
-                ],
-                transform:
-                    const GradientRotation(BorderSide.strokeAlignOutside),
-                begin: Alignment.centerRight,
-                end: Alignment.centerLeft,
-              ),
-            ),
-          ),
+          Image.asset('assets/images/background/frame2.png',),
           SingleChildScrollView(
             child: Column(
               children: [

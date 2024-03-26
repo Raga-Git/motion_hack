@@ -22,6 +22,10 @@ import '../modules/register_page/bindings/register_page_binding.dart';
 import '../modules/register_page/views/register_page_view.dart';
 import '../modules/reset_password_page/bindings/reset_password_page_binding.dart';
 import '../modules/reset_password_page/views/reset_password_page_view.dart';
+import '../modules/splash1_page/bindings/splash1_page_binding.dart';
+import '../modules/splash1_page/views/splash1_page_view.dart';
+import '../modules/splash2_page/bindings/splash2_page_binding.dart';
+import '../modules/splash2_page/views/splash2_page_view.dart';
 
 part 'app_routes.dart';
 
@@ -85,6 +89,16 @@ class AppPages {
       name: _Paths.NOTIFIKASI_PAGE,
       page: () => const NotifikasiPageView(),
       binding: NotifikasiPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH1_PAGE,
+      page: () => const Splash1PageView(),
+      binding: Splash1PageBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH2_PAGE,
+      page: () => const Splash2PageView(),
+      binding: Splash2PageBinding(),
     ),
   ];
 }
