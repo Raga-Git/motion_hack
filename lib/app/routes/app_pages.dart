@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/analisis_page/bindings/analisis_page_binding.dart';
 import '../modules/analisis_page/views/analisis_page_view.dart';
+import '../modules/chat_page/bindings/chat_page_binding.dart';
+import '../modules/chat_page/views/chat_page_view.dart';
 import '../modules/edit_profil_page/bindings/edit_profil_page_binding.dart';
 import '../modules/edit_profil_page/views/edit_profil_page_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -10,6 +12,8 @@ import '../modules/login_page/bindings/login_page_binding.dart';
 import '../modules/login_page/views/login_page_view.dart';
 import '../modules/lupa_password_page/bindings/lupa_password_page_binding.dart';
 import '../modules/lupa_password_page/views/lupa_password_page_view.dart';
+import '../modules/notifikasi_page/bindings/notifikasi_page_binding.dart';
+import '../modules/notifikasi_page/views/notifikasi_page_view.dart';
 import '../modules/onboarding_page/bindings/onboarding_page_binding.dart';
 import '../modules/onboarding_page/views/onboarding_page_view.dart';
 import '../modules/profil_page/bindings/profil_page_binding.dart';
@@ -71,6 +75,16 @@ class AppPages {
       name: _Paths.EDIT_PROFIL_PAGE,
       page: () => const EditProfilPageView(),
       binding: EditProfilPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT_PAGE,
+      page: () => const ChatPageView(),
+      binding: ChatPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFIKASI_PAGE,
+      page: () => const NotifikasiPageView(),
+      binding: NotifikasiPageBinding(),
     ),
   ];
 }
