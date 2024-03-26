@@ -1,16 +1,34 @@
-# motion_hack
 
-A new Flutter project.
+# LungsCare
 
-## Getting Started
+LungsCare  adalah sebuah aplikasi yang dirancang untuk membantu individu yang ingin mengurangi atau berhenti dari adiksi rokok. Dengan pendekatan yang baik dan berbasis teknologi, LungsCare  menyediakan berbagai fitur dan dukungan yang bertujuan untuk membantu pengguna melalui proses perubahan perilaku mereka.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Clone project ini
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+https://github.com/Raga-Git/motion_hack.git
+```
+
+Mendapatkan dependency
+
+```bash
+flutter pub get
+```
+
+Menjalankan project
+
+```bash
+flutter run
+```
+
+Akun demo
+
+```bash
+Email : raga@gmail.com
+Password : 123456
+``
+
+## Screenshots
