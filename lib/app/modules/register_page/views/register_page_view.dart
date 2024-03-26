@@ -128,6 +128,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                   ),
                   TextField(
                     controller: controller.passC,
+                    obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -158,6 +159,8 @@ class RegisterPageView extends GetView<RegisterPageController> {
                     height: 8,
                   ),
                   TextField(
+                    controller: controller.confirmPassC,
+                    obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -207,11 +210,17 @@ class RegisterPageView extends GetView<RegisterPageController> {
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 16.5),
                       ),
-                      onPressed: () => authC.register(
-                        controller.emailC.text,
-                        controller.passC.text,
-                        controller.fullnameC.text,
-                      ),
+                      onPressed: () {
+                        if (controller.passC.value ==
+                            controller.confirmPassC.value) {
+                          authC.register(
+                            controller.emailC.text,
+                            controller.passC.text,
+                            controller.fullnameC.text,
+                          );
+                        }
+                        Get.offAllNamed(Routes.NAVIGATION);
+                      },
                       child: const Text(
                         "Daftar",
                         style: TextStyle(
@@ -232,7 +241,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                         const Text("Sudah punya akun? "),
                         GestureDetector(
                           onTap: () {
-                            Get.offAllNamed(Routes.SET_TANGGAL);
+                            Get.offAllNamed(Routes.LOGIN_PAGE);
                           },
                           child: Text(
                             "Masuk",

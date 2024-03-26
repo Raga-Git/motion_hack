@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterPageController extends GetxController {
-  TextEditingController emailC =
-      TextEditingController(text: 'testlogin@gmail.com');
-  TextEditingController passC = TextEditingController(text: '123456');
+  TextEditingController emailC = TextEditingController();
+  TextEditingController passC = TextEditingController();
   TextEditingController fullnameC = TextEditingController();
+  TextEditingController confirmPassC = TextEditingController();
 
   @override
   void onClose() {

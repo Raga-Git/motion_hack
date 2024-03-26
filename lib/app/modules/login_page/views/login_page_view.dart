@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -23,10 +24,7 @@ class LoginPageView extends GetView<LoginPageController> {
               const SizedBox(
                 height: 64,
               ),
-              const Text(
-                'Logo',
-                style: TextStyle(fontSize: 20),
-              ),
+              Image.asset("assets/images/items/logo.png"),
               const SizedBox(
                 height: 42,
               ),
@@ -70,19 +68,19 @@ class LoginPageView extends GetView<LoginPageController> {
               TextField(
                 controller: controller.emailC,
                 decoration: InputDecoration(
-                  labelText: 'Masukan Email',
-                  labelStyle: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide: const BorderSide(
-                      width: 1,
-                      color: Color(0x66A4A4A4),
+                      color: Colors.blue,
                     ),
                   ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  hintText: "Masukkan email",
                 ),
               ),
               const SizedBox(
@@ -102,19 +100,19 @@ class LoginPageView extends GetView<LoginPageController> {
                 controller: controller.passC,
                 obscureText: true,
                 decoration: InputDecoration(
-                  labelText: 'Masukan Password',
-                  labelStyle: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide: const BorderSide(
-                      width: 1,
-                      color: Color(0x66A4A4A4),
+                      color: Colors.blue,
                     ),
                   ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  hintText: "Masukkan password",
                 ),
               ),
               const SizedBox(
@@ -126,84 +124,88 @@ class LoginPageView extends GetView<LoginPageController> {
                   GestureDetector(
                     onTap: () {
                       Get.bottomSheet(
-                        Container(
-                          height: 365,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(16),
-                              topRight: Radius.circular(16),
+                        SingleChildScrollView(
+                          child: Container(
+                            height: 365,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
+                              ),
                             ),
-                          ),
-                          child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.all(24.0),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "Lupa Password?",
-                                    style: TextStyle(
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "Jangan khawatir! Hal ini akan terjadi, silahkan masukan email anda.",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 32,
-                                  ),
-                                  TextField(
-                                    controller: controller.emailC,
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8),
-                                        borderSide: const BorderSide(
-                                          color: Colors.blue,
-                                        ),
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(24.0),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      "Lupa Password?",
+                                      style: TextStyle(
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8),
-                                        borderSide: const BorderSide(
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                      hintText: "Masukkan email",
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 26,
-                                  ),
-                                  SizedBox(
-                                    width: double.infinity,
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.blue,
-                                        shape: RoundedRectangleBorder(
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      "Jangan khawatir! Hal ini akan terjadi, silahkan masukan email anda.",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 32,
+                                    ),
+                                    TextField(
+                                      controller: controller.emailC,
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(8),
+                                          borderSide: const BorderSide(
+                                            color: Colors.blue,
+                                          ),
                                         ),
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 16.5),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          borderSide: const BorderSide(
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        hintText: "Masukkan email",
                                       ),
-                                      onPressed: () {},
-                                      child: Text(
-                                        "Kirim",
-                                        style: TextStyle(
-                                          color: Colors.white,
+                                    ),
+                                    SizedBox(
+                                      height: 26,
+                                    ),
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.blue,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 16.5),
+                                        ),
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Kirim",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -238,8 +240,8 @@ class LoginPageView extends GetView<LoginPageController> {
                         Get.snackbar(
                           'Selamat',
                           'Login Berhasil',
-                          backgroundColor: Colors.green.withOpacity(0.2),
-                          colorText: Colors.green,
+                          backgroundColor: Colors.green.withOpacity(0.8),
+                          colorText: white,
                           duration: const Duration(seconds: 3),
                           animationDuration: const Duration(seconds: 1),
                         );
@@ -247,8 +249,8 @@ class LoginPageView extends GetView<LoginPageController> {
                         Get.snackbar(
                           'Gagal Login',
                           'Coba periksa email dan password anda',
-                          backgroundColor: Colors.red.withOpacity(0.2),
-                          colorText: Colors.red,
+                          backgroundColor: Colors.red.withOpacity(0.8),
+                          colorText: white,
                           duration: const Duration(seconds: 4),
                           animationDuration: const Duration(seconds: 1),
                         );

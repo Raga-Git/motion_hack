@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -381,9 +382,6 @@ class _showAnalisyst extends StatelessWidget {
                   if (controller.isTahunSelected.value)
                     Image.asset('assets/images/items/statisticTahun.png'),
                   Image.asset('assets/images/items/indicator.png'),
-                  SizedBox(
-                    height: 30,
-                  ),
                 ],
               )
             ],

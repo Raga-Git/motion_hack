@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:motion_hack/app/controllers/auth_controller.dart';
 import 'package:motion_hack/app/routes/app_pages.dart';
@@ -38,25 +36,42 @@ class HomeView extends GetView<HomeController> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Selamat Pagi,",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: white,
-                            ),
-                          ),
-                          Text(
-                            "Jason Derulo",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
+                      FutureBuilder(
+                        future: authC.getData(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          } else if (snapshot.hasError) {
+                            return Text("${snapshot.error}");
+                          } else if (snapshot.hasData) {
+                            Map<String, dynamic>? user = snapshot.data!.data();
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Selamat Pagi,",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: white,
+                                  ),
+                                ),
+                                Text(
+                                  user!['fullname'],
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: white,
+                                  ),
+                                ),
+                              ],
+                            );
+                          } else {
+                            return Text('No Data');
+                          }
+                        },
                       ),
                       Image.asset(
                         "assets/images/profile/test_profile.png",
@@ -106,7 +121,7 @@ class HomeView extends GetView<HomeController> {
                                       backgroundColor: primaryColor,
                                     ),
                                     onPressed: () {
-                                      Get.offAllNamed(
+                                      Get.toNamed(
                                           Routes.DETAIL_PROGRESS_TRACKER);
                                     },
                                     child: Text(

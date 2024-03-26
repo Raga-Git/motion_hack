@@ -14,6 +14,15 @@ abstract class Routes {
   static const DETAIL_PROGRESS_TRACKER = _Paths.DETAIL_PROGRESS_TRACKER;
   static const KONSULTASI = _Paths.KONSULTASI;
   static const JADWAL_KONSULTASI = _Paths.JADWAL_KONSULTASI;
+  static const ANALISIS_PAGE = _Paths.ANALISIS_PAGE;
+  static const CHAT_PAGE = _Paths.CHAT_PAGE;
+  static const NOTIFIKASI_PAGE = _Paths.NOTIFIKASI_PAGE;
+  static const PROFILE_PAGE = _Paths.PROFILE_PAGE;
+  static const EDIT_PROFILE_PAGE = _Paths.EDIT_PROFILE_PAGE;
+  static const ATUR_AKUN_PAGE = _Paths.ATUR_AKUN_PAGE;
+  static const SPLASH1 = _Paths.SPLASH1;
+  static const SPLASH2 = _Paths.SPLASH2;
+  static const NAVIGATION = _Paths.NAVIGATION;
 }
 
 abstract class _Paths {
@@ -29,4 +38,13 @@ abstract class _Paths {
   static const DETAIL_PROGRESS_TRACKER = '/detail-progress-tracker';
   static const KONSULTASI = '/konsultasi';
   static const JADWAL_KONSULTASI = '/jadwal-konsultasi';
+  static const ANALISIS_PAGE = '/analisis-page';
+  static const CHAT_PAGE = '/chat-page';
+  static const NOTIFIKASI_PAGE = '/notifikasi-page';
+  static const PROFILE_PAGE = '/profile-page';
+  static const EDIT_PROFILE_PAGE = '/edit-profile-page';
+  static const ATUR_AKUN_PAGE = '/atur-akun-page';
+  static const SPLASH1 = '/splash1';
+  static const SPLASH2 = '/splash2';
+  static const NAVIGATION = '/navigation';
 }

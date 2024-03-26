@@ -95,7 +95,7 @@ class SetTanggalView extends GetView<SetTanggalController> {
             ),
           ),
           SizedBox(
-            height: 355,
+            height: 35,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
