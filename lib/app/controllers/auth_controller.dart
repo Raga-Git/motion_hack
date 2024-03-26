@@ -30,14 +30,12 @@ class AuthController extends GetxController {
 
   void register(String email, String password, String fullname) async {
     try {
-      await FirebaseFirestore.instance.collection('users').add({
-        'fullname': fullname,
-        'email': email,
-      });
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      createUserDocument(userCredential, fullname);
       Get.offAllNamed(Routes.HOME);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -47,6 +45,27 @@ class AuthController extends GetxController {
       }
     } catch (e) {
       print(e);
+    }
+  }
+
+  final user = FirebaseAuth.instance.currentUser;
+  Future<DocumentSnapshot<Map<String, dynamic>>> getData() async {
+    return await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.email)
+        .get();
+  }
+
+  Future<void> createUserDocument(
+      UserCredential? userCredential, String fullname) async {
+    if (userCredential != null && userCredential.user != null) {
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(userCredential.user!.email)
+          .set({
+        'email': userCredential.user!.email,
+        'fullname': fullname,
+      });
     }
   }
 }

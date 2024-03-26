@@ -388,4 +388,5 @@ class AnalisisPageController extends GetxController {
     isTahunSelected.value = true;
     update();
   }
+  
 }

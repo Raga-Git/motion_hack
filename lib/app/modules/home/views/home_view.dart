@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -6,15 +8,17 @@ import 'package:motion_hack/app/shared/theme/color.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
+  final authC = Get.find<AuthController>();
   HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final authC = Get.find<AuthController>(); 
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/images/background/frame.png',),
+          Image.asset(
+            'assets/images/background/frame.png',
+          ),
           SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -26,23 +30,40 @@ class HomeView extends GetView<HomeController> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Selamat Pagi,",
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                          Text(
-                            "Nama",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
+                      FutureBuilder(
+                        future: authC.getData(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          } else if (snapshot.hasError) {
+                            return Text("${snapshot.error}");
+                          } else if (snapshot.hasData) {
+                            Map<String, dynamic>? user = snapshot.data!.data();
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Selamat Pagi,",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Text(
+                                  user!['fullname'],
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            );
+                          } else {
+                            return Text('No Data');
+                          }
+                        },
                       ),
                       Image.asset(
                         "assets/images/profile/test_profile.png",
@@ -300,12 +321,10 @@ class HomeView extends GetView<HomeController> {
                                       ),
                                       children: [
                                         TextSpan(
-                                          text:
-                                              "berhasil\n",
+                                          text: "berhasil\n",
                                           style: TextStyle(
                                             color: Colors.black,
-                                            fontWeight: FontWeight
-                                                .bold,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         TextSpan(

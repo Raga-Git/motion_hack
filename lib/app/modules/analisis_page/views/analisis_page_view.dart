@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
+import 'package:motion_hack/app/controllers/auth_controller.dart';
 import 'package:motion_hack/app/shared/theme/color.dart';
 
 import '../controllers/analisis_page_controller.dart';
@@ -10,6 +11,7 @@ import '../controllers/analisis_page_controller.dart';
 class AnalisisPageView extends GetView<AnalisisPageController> {
   final AnalisisPageController analisisPageController =
       Get.put(AnalisisPageController());
+  final authC = Get.find<AuthController>();
 
   AnalisisPageView({Key? key}) : super(key: key);
   @override
@@ -18,7 +20,9 @@ class AnalisisPageView extends GetView<AnalisisPageController> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/images/background/frame2.png',),
+          Image.asset(
+            'assets/images/background/frame2.png',
+          ),
           SingleChildScrollView(
             child: Column(
               children: [
@@ -30,23 +34,41 @@ class AnalisisPageView extends GetView<AnalisisPageController> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Selamat Pagi,",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                ),
-                              ),
-                              Text(
-                                "Nama",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ],
+                          FutureBuilder(
+                            future: authC.getData(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              } else if (snapshot.hasError) {
+                                return Text("${snapshot.error}");
+                              } else if (snapshot.hasData) {
+                                Map<String, dynamic>? user =
+                                    snapshot.data!.data();
+                                return Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Selamat Pagi,",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Text(
+                                      user!['fullname'],
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              } else {
+                                return Text('No Data');
+                              }
+                            },
                           ),
                           Image.asset(
                             "assets/images/profile/test_profile.png",
