@@ -29,6 +29,6 @@ Akun demo
 ```bash
 Email : raga@gmail.com
 Password : 123456
-``
+```
 
 ## Screenshots
